@@ -89,21 +89,3 @@ python mcp_server/server.py
 
 (or point the MCP Inspector / Claude Desktop's config at it).
 
-## Extending it
-
-- Swap `get_llm()` in `app/config.py` for a different model or provider.
-- Add a new tool to `mcp_server/server.py` (e.g. `get_visa_requirements`)
-  and a matching agent — same MCP pattern, no direct API imports in the
-  agent itself.
-- Add a real currency-conversion step in `budget_agent.py` using a free API
-  like https://www.exchangerate-api.com/ if you want non-USD budgets.
-- Wrap `main.py`'s `run()` function in a small FastAPI or Streamlit app for a
-  UI instead of the CLI.
-
-## Resume-friendly summary
-
-> Built **TripCraft AI**, a multi-agent travel planner orchestrated with
-> **LangGraph**, where flight/hotel/weather lookups are exposed through a
-> custom **MCP (Model Context Protocol) server** consumed by the agents as
-> MCP clients, with **Google Gemini** handling request parsing, itinerary
-> generation, and budget reasoning.
